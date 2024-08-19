@@ -25,14 +25,21 @@ export default function AppContextProvider({children}){
     const divsionref=useRef(null)
     const [showpassword,setshowpassword]=useState(false)
 
-    function signupHandler(){
+    function signupHandler(event){
         setsignupdata((prev)=>{
             return{ ...prev,[event.target.name]:event.target.value}
         })
     }
     function SignupFormHandler(event){
+        console.log("this is clicked");
         event.preventDefault();
         localStorage.setItem('userdetails',JSON.stringify(signupdata))
+        setsignupdata({
+            name:"",
+            email:"",
+            password:"",
+            cpassword:""
+            })
         console.log(signupdata)
     }
     function formHandler(event){
@@ -52,6 +59,7 @@ export default function AppContextProvider({children}){
 
    //storing the userdetails in local storage
     function submitHandler(event){
+        console.log("clicked")
         event.preventDefault()
         let saveddata=JSON.parse(localStorage.getItem('userdetails'))
         console.log(saveddata)
@@ -84,15 +92,10 @@ export default function AppContextProvider({children}){
             name: "",
             password: ""
         });
-        setsignupdata({
-        name:"",
-        email:"",
-        password:"",
-        cpassword:""
-        })
+      
         
     }
-    
+  
   function toggleHandler(){
     console.log(divsionref.current)
     divsionref.current.style.display = divsionref.current.style.display === 'block' ? 'none' : 'block';

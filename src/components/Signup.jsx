@@ -21,11 +21,11 @@ export default function Signup() {
         <div className='input_tag_login'><input type={showpassword?"text":"password"} style={inputstyle} name='password' onChange={signupHandler} value={signupdata.password} placeholder='Password' id='input_password_signup'/>{showpassword?<IoIosEye className='login_icon' onClick={passwordHandler} />:<IoIosEyeOff className='login_icon' onClick={passwordHandler}/>}</div>
 
         <div className='input_tag_login'><input type={showpassword?"text":"password"} style={inputstyle} name='cpassword' onChange={signupHandler} value={signupdata.cpassword} placeholder='Confirm Password' id='input_passwords_signup'/>{showpassword?<IoIosEye className='login_icon' onClick={passwordHandler} />:<IoIosEyeOff className='login_icon' onClick={passwordHandler}/>}</div>
-            <div><Link to="/"><button className='login_btn'>Sign In</button></Link></div>
+            <div><button className='login_btn'>Sign Up</button></div>
             <div className='forgot'>Forgot Password?</div>
         </form>
         </div>
-        <div style={{textAlign:"center"}}><span className='netflix'>Already Have An Account? </span> <span><Link className='signup' to="/">Sign In.</Link></span></div>
+        <div style={{textAlign:"center"}}><span className='netflix'>Already Have An Account? </span> <Link className='signup' to="/"><span>Sign In</span></Link></div>
         </div>
     </div>
       </div>
